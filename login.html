@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+
+    <title>everydayLunch</title>
+
+    <style>
+        .wrap {
+        {#display: flex;#}{#justify-content: center;#} width: 100%;
+            text-align: center;
+        }
+
+        .login-title {
+            display: inline-block;
+            margin: 20px 0 20px 0;
+        }
+
+        .login-small-text {
+            display: inline-block;
+            text-align: left;
+            position: relative;
+        }
+
+        .login-inputbox {
+            margin: 0 auto 20px auto;
+            width: 500px;
+        }
+
+        .login-btn {
+            width: 500px;
+            margin-bottom: 20px;
+        }
+
+        .login-btn-half {
+            display: inline-block;
+            width: 250px;
+            margin-bottom: 20px;
+        }
+
+        .duplicate-btn {
+
+        }
+
+
+    </style>
+
+    <script>
+
+        function toggle_sign_up() {
+            $("#loginSmallText").toggleClass("d-none");
+            $("#loginSmallText2").toggleClass("d-none");
+            $("#loginInputBox3").toggleClass("d-none");
+            $("#signupBox").toggleClass("d-none");
+            $("#loginBtn").toggleClass("d-none");
+            $("#signupBtn").toggleClass("d-none");
+            $("#signupBtnBox").toggleClass("d-none");
+            $("#btnCheckDup").toggleClass("d-none");
+        }
+
+        function is_name(asValue) {
+            var regExp = /^(?=.*[a-zA-Z])[-a-zA-Z0-9_.]{2,10}$/;
+            return regExp.test(asValue);
+        }
+
+        function is_password(asValue) {
+            var regExp = /^(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z!@#$%^&*]{8,20}$/;
+            return regExp.test(asValue);
+        }
+
+    </script>
+
+
+</head>
+<body>
+
+<div class="wrap">
+    <div class="login">
+        <form>
+            <div class="login-title">
+                <h1>매일점심</h1>
+            </div>
+
+            <div class="input-group mb-3 login-inputbox">
+                <input type="text" class="form-control" placeholder="Recipient's username"
+                       aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary d-none" type="button" onclick="check_dup()" id="btnCheckDup">중복확인</button>
+                </div>
+            </div>
+
+
+            <small class="login-small-text d-none" id="loginSmallText">아이디는 2-10자의 영문과 숫자와 일부 특수문자(._-)만 입력
+                가능합니다.</small>
+            <div class="form-group login-inputbox">
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="비밀번호">
+                <small class="login-small-text d-none" id="loginSmallText2">영문과 숫자 조합의 8-20자의 비밀번호를 설정해주세요.
+                    특수문자(!@#$%^&*)도 사용 가능합니다.</small>
+            </div>
+            <div class="form-group login-inputbox d-none" id="loginInputBox3">
+                <input type="password" class="form-control" id="exampleInputPassword3" placeholder="비밀번호">
+                <small class="login-small-text id=" loginSmallText3">비밀번호를 다시 한 번 입력해주세요.</small>
+            </div>
+
+            <button type="submit" class="btn btn-primary login-btn" id="loginBtn">로그인</button>
+        </form>
+        <div>
+            <div id="signupBtn">
+                <hr>
+                <p>아직 회원이 아니라면</p>
+                <button type="submit" class="btn btn-primary login-btn" onclick="toggle_sign_up()">회원가입하기
+                </button>
+            </div>
+            <div class="d-none" id="signupBox">
+                <button type="submit" class="btn btn-primary login-btn-half">회원가입</button>
+                <button type="submit" class="btn btn-primary login-btn-half" onclick="toggle_sign_up()">취소</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+</body>
+</html>
